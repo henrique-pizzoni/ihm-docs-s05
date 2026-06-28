@@ -194,7 +194,7 @@
     .uml-leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted) }
 
     /* ─── TELAS ─── */
-    #telas { background: var(--bg) }
+    #telas { background: #fff }
     .telas-layout {
       display: grid; grid-template-columns: auto 1fr; gap: 56px;
       margin-top: 40px; align-items: center
@@ -215,7 +215,7 @@
     .feat-desc { font-size: 13px; color: var(--muted); line-height: 1.6 }
 
     /* ─── DEMO ─── */
-    #demo { background: #fff }
+    #demo { background: var(--bg) }
     .demo-layout {
       display: grid; grid-template-columns: 1fr auto; gap: 48px;
       margin-top: 40px; align-items: start
@@ -348,8 +348,8 @@
     <a href="#user-story">User Story</a>
     <a href="#analise">Análise</a>
     <a href="#uml">UML</a>
-    <a href="#telas">Telas</a>
     <a href="#demo">Demo</a>
+    <a href="#telas">Telas</a>
     <a href="#wireframe">Wireframe</a>
   </div>
   <a class="nav-btn" href="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/" target="_blank">Abrir App →</a>
@@ -368,7 +368,40 @@
     </div>
     <div class="hero-btns">
       <a class="btn-w" href="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/" target="_blank">🚀 Acessar o App</a>
-      <a class="btn-g" href="#demo">Ver demonstração ↓</a>
+      <a class="btn-g" href="#demo">Explorar o app ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEMO ══ -->
+<section id="demo">
+  <div class="container">
+    <div class="label">Demo ao Vivo</div>
+    <h2>O App em ação</h2>
+    <p class="lead">O App Mercado de Trabalho está rodando ao vivo abaixo — interaja como em um celular real.</p>
+    <div class="telas-layout">
+      <div class="phone">
+        <div class="phone-inner">
+          <iframe
+            src="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/"
+            title="App Mercado de Trabalho — Inatel"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="phone-chin"></div>
+      </div>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:16px;color:var(--navy)">10 telas interativas</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.8">Use o app ao lado como você usaria em um celular — navegue, filtre vagas, candidate-se e acompanhe o status em tempo real.</p>
+        <div class="feats">
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Hub Mercado de Trabalho</div><div class="feat-desc">Tela inicial da funcionalidade com acesso rápido às 4 sub-seções.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Busca com filtros avançados</div><div class="feat-desc">Filtros por área, modalidade e tipo com chips removíveis e contador de resultados.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Detalhes + candidatura</div><div class="feat-desc">Vagas internas com modal de sucesso; externas com alerta de redirecionamento.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Perfil profissional</div><div class="feat-desc">Barra de progresso, áreas de interesse interativas, upload de currículo simulado.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Minhas candidaturas</div><div class="feat-desc">Tabs por status, cada item clicável abre os detalhes da vaga correspondente.</div></div></div>
+          <div class="feat"><div class="feat-dot" style="background:var(--green)"></div><div><div class="feat-title">Responsivo desktop + mobile</div><div class="feat-desc">Sidebar em telas largas; bottom nav em mobile. Experimente redimensionando a janela.</div></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -858,40 +891,8 @@
 <section id="telas">
   <div class="container">
     <div class="label">Telas do Projeto</div>
-    <h2>O App em ação</h2>
-    <div class="telas-layout">
-      <div class="phone">
-        <div class="phone-inner">
-          <iframe
-            src="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/"
-            title="App Mercado de Trabalho — Inatel"
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div class="phone-chin"></div>
-      </div>
-      <div>
-        <h3 style="font-size:22px;margin-bottom:16px;color:var(--navy)">10 telas interativas</h3>
-        <p style="font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.8">O app ao lado está rodando ao vivo. Explore o fluxo completo diretamente no mockup.</p>
-        <div class="feats">
-          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Hub Mercado de Trabalho</div><div class="feat-desc">Tela inicial da funcionalidade com acesso rápido às 4 sub-seções.</div></div></div>
-          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Busca com filtros avançados</div><div class="feat-desc">Filtros por área, modalidade e tipo com chips removíveis e contador de resultados.</div></div></div>
-          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Detalhes + candidatura</div><div class="feat-desc">Vagas internas com modal de sucesso; externas com alerta de redirecionamento.</div></div></div>
-          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Perfil profissional</div><div class="feat-desc">Barra de progresso, áreas de interesse interativas, upload de currículo simulado.</div></div></div>
-          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Minhas candidaturas</div><div class="feat-desc">Tabs por status, cada item clicável abre os detalhes da vaga correspondente.</div></div></div>
-          <div class="feat"><div class="feat-dot" style="background:var(--green)"></div><div><div class="feat-title">Responsivo desktop + mobile</div><div class="feat-desc">Sidebar em telas largas; bottom nav em mobile. Experimente redimensionando a janela.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ DEMO ══ -->
-<section id="demo">
-  <div class="container">
-    <div class="label">Demonstração</div>
-    <h2>Fluxo principal passo a passo</h2>
-    <p class="lead" style="margin-bottom:8px">Selecione uma etapa para visualizar o estado correspondente da interface.</p>
+    <h2>Fluxo principal de uso</h2>
+    <p class="lead" style="margin-bottom:8px">Selecione uma etapa para visualizar a tela correspondente do app.</p>
 
     <div class="demo-layout">
       <div>
@@ -905,23 +906,23 @@
         <div class="ds-list">
           <div class="ds on" onclick="setSlide(0)">
             <div class="ds-n">1</div>
-            <div><div class="ds-title">Home → Mercado de Trabalho</div><div class="ds-desc">O card de destaque na dashboard leva ao hub do Mercado de Trabalho com um toque.</div></div>
+            <div><div class="ds-title">Home → Mercado de Trabalho</div><div class="ds-desc">O banner de destaque na Home leva ao hub do Mercado de Trabalho com um toque.</div></div>
           </div>
           <div class="ds" onclick="setSlide(1)">
             <div class="ds-n">2</div>
-            <div><div class="ds-title">Hub + Acesso Rápido</div><div class="ds-desc">4 atalhos para Vagas Internas, Externas, Meu Perfil e Minhas Candidaturas. Vagas em destaque logo abaixo.</div></div>
+            <div><div class="ds-title">Hub do Mercado de Trabalho</div><div class="ds-desc">Acesso rápido às 4 sub-seções e vagas em destaque — Internas e Externas.</div></div>
           </div>
           <div class="ds" onclick="setSlide(2)">
             <div class="ds-n">3</div>
-            <div><div class="ds-title">Detalhes da Vaga</div><div class="ds-desc">Badge de tipo (Interna/Externa), descrição completa, responsabilidades e botão de candidatura.</div></div>
+            <div><div class="ds-title">Detalhes da Vaga</div><div class="ds-desc">Badge de tipo (Interna), descrição, responsabilidades e botão "Candidatar-se".</div></div>
           </div>
           <div class="ds" onclick="setSlide(3)">
             <div class="ds-n">4</div>
-            <div><div class="ds-title">Candidatura enviada!</div><div class="ds-desc">Modal de sucesso confirma o envio. "Fechar" navega direto para Minhas Candidaturas.</div></div>
+            <div><div class="ds-title">Candidatura enviada!</div><div class="ds-desc">Modal de confirmação após candidatura interna. "Fechar" navega para Minhas Candidaturas.</div></div>
           </div>
           <div class="ds" onclick="setSlide(4)">
             <div class="ds-n">5</div>
-            <div><div class="ds-title">Minhas Candidaturas</div><div class="ds-desc">Status coloridos em tempo real. Cada item é clicável e abre os detalhes da vaga correspondente.</div></div>
+            <div><div class="ds-title">Minhas Candidaturas</div><div class="ds-desc">Status coloridos em tempo real: Em análise, Aprovado, Rejeitado e Finalizado.</div></div>
           </div>
         </div>
       </div>
@@ -932,119 +933,277 @@
 
             <!-- Slide 0 — Home -->
             <div class="slide on" id="slide-0">
-              <div class="home-hdr">
-                <div>
-                  <div class="home-logo">Inatel</div>
-                  <div class="home-sub">Olá, Mariana! · Terça, 20 de maio</div>
+              <!-- Header -->
+              <div style="background:#fff;padding:11px 14px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+                <span style="font-size:14px;font-weight:900;color:#1B3A6B;letter-spacing:-.5px">INATEL</span>
+                <div style="display:flex;gap:6px;align-items:center">
+                  <span style="font-size:13px;color:#64748B">🔔</span>
+                  <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#1B3A6B);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">M</div>
                 </div>
-                <div style="font-size:18px">🔔</div>
               </div>
-              <div class="sb wh" style="padding:0">
-                <div class="mkt-card" style="animation:pulse 2s infinite">
-                  <div class="mkt-card-t">💼 Mercado de Trabalho</div>
-                  <div class="mkt-card-d">Encontre estágios, vagas e oportunidades para impulsionar sua carreira.</div>
-                  <div class="mkt-card-btn">Acessar oportunidades →</div>
+              <!-- Content -->
+              <div style="flex:1;overflow:hidden;background:#F8FAFC;padding:12px 12px 0">
+                <div style="margin-bottom:10px">
+                  <div style="font-size:13px;font-weight:700;color:#1E293B">Olá, Mariana!</div>
+                  <div style="font-size:9px;color:#64748B;margin-top:1px">Terça-feira, 20 de maio</div>
                 </div>
-                <div style="padding:0 11px">
-                  <div style="font-size:10px;font-weight:700;color:var(--text);margin-bottom:8px">Meus widgets</div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-                    <div class="sc"><div class="sc-t">📊 Notas</div><div style="font-size:16px;font-weight:800;color:var(--navy);margin:4px 0">8.6</div><div class="sc-s">Média geral · Excelente</div></div>
-                    <div class="sc"><div class="sc-t">📅 Próx. aulas</div><div style="font-size:11px;font-weight:700;color:var(--text);margin:4px 0">10:20</div><div class="sc-s">Cálculo II · Sala 204</div></div>
+                <!-- Banner Mercado -->
+                <div style="background:linear-gradient(135deg,#1B3A6B 0%,#2752C7 100%);border-radius:10px;padding:12px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+                  <div style="flex:1">
+                    <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px">Mercado de Trabalho</div>
+                    <div style="font-size:8px;color:rgba(255,255,255,.82);margin-bottom:7px;line-height:1.4">Encontre estágios, vagas e oportunidades para impulsionar sua carreira.</div>
+                    <div style="display:inline-flex;gap:3px;align-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 8px;font-size:8px;font-weight:600;color:#fff">Acessar oportunidades →</div>
+                  </div>
+                  <div style="font-size:30px;margin-left:6px">💼</div>
+                </div>
+                <!-- Widgets -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+                  <span style="font-size:10px;font-weight:700;color:#1E293B">Meus widgets</span>
+                  <span style="font-size:9px;color:#2563EB;font-weight:600">Editar</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+                  <div style="background:#fff;border-radius:9px;padding:9px;border:1px solid #E2E8F0">
+                    <div style="font-size:8px;font-weight:600;color:#64748B;margin-bottom:3px">📊 Notas</div>
+                    <div style="font-size:8px;color:#94A3B8;margin-bottom:2px">Média geral</div>
+                    <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:3px">
+                      <span style="font-size:20px;font-weight:800;color:#1B3A6B">8.6</span>
+                      <span style="font-size:7px;font-weight:700;color:#10B981;background:#D1FAE5;padding:1px 4px;border-radius:20px">Excelente</span>
+                    </div>
+                    <svg width="100%" height="16" viewBox="0 0 100 16"><polyline points="0,14 20,10 40,12 60,5 80,7 100,2" fill="none" stroke="#BFDBFE" stroke-width="1.5" stroke-linecap="round"/><polyline points="0,14 20,10 40,12 60,5 80,7 100,2" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/></svg>
+                  </div>
+                  <div style="background:#fff;border-radius:9px;padding:9px;border:1px solid #E2E8F0">
+                    <div style="font-size:8px;font-weight:600;color:#64748B;margin-bottom:6px">📅 Próximas aulas</div>
+                    <div style="display:flex;gap:5px;margin-bottom:5px">
+                      <span style="font-size:9px;font-weight:700;color:#1B3A6B;min-width:28px">10:20</span>
+                      <div><div style="font-size:8px;font-weight:600;color:#1E293B">Cálculo II</div><div style="font-size:7px;color:#94A3B8">Sala 204</div></div>
+                    </div>
+                    <div style="display:flex;gap:5px">
+                      <span style="font-size:9px;font-weight:700;color:#1B3A6B;min-width:28px">13:30</span>
+                      <div><div style="font-size:8px;font-weight:600;color:#1E293B">Redes de Comp.</div><div style="font-size:7px;color:#94A3B8">Sala 301</div></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div style="display:flex;background:#fff;border-top:1px solid var(--border);padding:6px 0;flex-shrink:0">
-                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">🏠<br>Início</div>
-                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">📚<br>Acadêmico</div>
-                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">⊞<br>Serviços</div>
-                <div style="flex:1;text-align:center;font-size:9px;color:var(--blue);font-weight:700;padding:4px">💼<br>Mercado</div>
-                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">☰<br>Menu</div>
+              <!-- Bottom nav -->
+              <div style="background:#fff;border-top:1px solid #E2E8F0;padding:5px 0;display:flex;flex-shrink:0">
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#2563EB;font-weight:700;padding:3px">🏠<br>Início</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">📚<br>Acadêmico</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⊞<br>Serviços</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">💼<br>Mercado</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⚙️<br>Config.</div>
               </div>
             </div>
 
-            <!-- Slide 1 — Mercado Hub -->
+            <!-- Slide 1 — Mercado de Trabalho Hub -->
             <div class="slide" id="slide-1">
-              <div class="sh blue">
-                <div style="font-size:18px">💼</div>
-                <div>
-                  <div class="sh-t">Mercado de Trabalho</div>
-                  <div style="font-size:9px;opacity:.7">Explore oportunidades e construa o seu futuro.</div>
+              <!-- Header navy -->
+              <div style="background:linear-gradient(135deg,#1B3A6B 0%,#2752C7 100%);padding:10px 14px 18px;flex-shrink:0">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <span style="color:rgba(255,255,255,.8);font-size:14px">‹</span>
+                  <div style="display:flex;gap:5px;align-items:center">
+                    <span style="color:rgba(255,255,255,.8);font-size:12px">🔔</span>
+                    <div style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center">M</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:flex-start;justify-content:space-between">
+                  <div>
+                    <div style="font-size:8px;font-weight:900;color:rgba(255,255,255,.85);letter-spacing:1px;margin-bottom:5px">INATEL</div>
+                    <div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:2px">Mercado de Trabalho</div>
+                    <div style="font-size:8px;color:rgba(255,255,255,.8);line-height:1.4">Explore oportunidades e construa o seu futuro.</div>
+                  </div>
+                  <div style="font-size:28px;margin-top:2px">💼</div>
                 </div>
               </div>
-              <div class="sb bg">
-                <div class="qi-grid">
-                  <div class="qi"><div class="qi-ico">🏛️</div><div class="qi-lbl">Vagas Internas</div></div>
-                  <div class="qi"><div class="qi-ico">🌐</div><div class="qi-lbl">Vagas Externas</div></div>
-                  <div class="qi"><div class="qi-ico">👤</div><div class="qi-lbl">Meu Perfil</div></div>
-                  <div class="qi"><div class="qi-ico">📋</div><div class="qi-lbl">Candidaturas</div></div>
+              <!-- Content -->
+              <div style="flex:1;overflow:hidden;background:#F8FAFC;padding:8px;margin-top:-9px">
+                <!-- Quick access -->
+                <div style="background:#fff;border-radius:10px;padding:10px;margin-bottom:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;border:1px solid #E2E8F0">
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                    <div style="width:32px;height:32px;border-radius:9px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:14px">💼</div>
+                    <span style="font-size:7px;font-weight:600;color:#475569;text-align:center;line-height:1.2">Vagas<br>Internas</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                    <div style="width:32px;height:32px;border-radius:9px;background:#FFF7ED;display:flex;align-items:center;justify-content:center;font-size:14px">🌐</div>
+                    <span style="font-size:7px;font-weight:600;color:#475569;text-align:center;line-height:1.2">Vagas<br>Externas</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                    <div style="width:32px;height:32px;border-radius:9px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;font-size:14px">👤</div>
+                    <span style="font-size:7px;font-weight:600;color:#475569;text-align:center;line-height:1.2">Meu<br>Perfil</span>
+                  </div>
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+                    <div style="width:32px;height:32px;border-radius:9px;background:#FAF5FF;display:flex;align-items:center;justify-content:center;font-size:14px">📋</div>
+                    <span style="font-size:7px;font-weight:600;color:#475569;text-align:center;line-height:1.2">Minhas<br>Candid.</span>
+                  </div>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                  <span style="font-size:11px;font-weight:700;color:var(--text)">Vagas em destaque</span>
-                  <span style="font-size:10px;color:var(--blue);font-weight:600">Ver todas</span>
+                <!-- Vagas destaque -->
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                  <span style="font-size:10px;font-weight:700;color:#1E293B">Vagas em destaque</span>
+                  <span style="font-size:8px;color:#2563EB;font-weight:600">Ver todas →</span>
                 </div>
-                <div class="sc"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><span class="tbg ti">Interna</span><div class="sc-t">Estágio em Desenvolvimento</div><div class="sc-s">Inatel · Santa Rita do Sapucaí</div></div><div style="font-size:14px">🔖</div></div><div style="margin-top:6px"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Estágio</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Presencial</span></div></div>
-                <div class="sc"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><span class="tbg te">Externa</span><div class="sc-t">Desenvolvedor Backend</div><div class="sc-s">Hughes do Brasil · São José dos Campos</div></div><div style="font-size:14px">🔖</div></div><div style="margin-top:6px"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Efetivo</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Híbrido</span></div></div>
+                <!-- VagaCard 1 -->
+                <div style="background:#fff;border-radius:9px;padding:9px 10px;margin-bottom:5px;border:1px solid #E2E8F0">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+                    <span style="background:#DBEAFE;color:#1d4ed8;font-size:7.5px;font-weight:700;padding:2px 6px;border-radius:4px">Interna</span>
+                    <span style="color:#94A3B8;font-size:11px">🔖</span>
+                  </div>
+                  <div style="font-size:10px;font-weight:700;color:#1E293B;margin-bottom:3px">Estágio em Desenvolvimento</div>
+                  <div style="font-size:8px;color:#64748B;margin-bottom:2px">🏢 Inatel</div>
+                  <div style="font-size:8px;color:#64748B;margin-bottom:5px">📍 Santa Rita do Sapucaí, MG</div>
+                  <div style="display:flex;gap:3px">
+                    <span style="background:#F1F5F9;color:#475569;font-size:7px;padding:2px 5px;border-radius:4px">Estágio</span>
+                    <span style="background:#F1F5F9;color:#475569;font-size:7px;padding:2px 5px;border-radius:4px">Presencial</span>
+                  </div>
+                </div>
+                <!-- VagaCard 2 -->
+                <div style="background:#fff;border-radius:9px;padding:9px 10px;border:1px solid #E2E8F0">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+                    <span style="background:#FFEDD5;color:#c2410c;font-size:7.5px;font-weight:700;padding:2px 6px;border-radius:4px">Externa</span>
+                    <span style="color:#94A3B8;font-size:11px">🔖</span>
+                  </div>
+                  <div style="font-size:10px;font-weight:700;color:#1E293B;margin-bottom:3px">Desenvolvedor Backend</div>
+                  <div style="font-size:8px;color:#64748B;margin-bottom:2px">🏢 Hughes do Brasil</div>
+                  <div style="font-size:8px;color:#64748B;margin-bottom:5px">📍 São José dos Campos, SP</div>
+                  <div style="display:flex;gap:3px">
+                    <span style="background:#F1F5F9;color:#475569;font-size:7px;padding:2px 5px;border-radius:4px">Efetivo</span>
+                    <span style="background:#F1F5F9;color:#475569;font-size:7px;padding:2px 5px;border-radius:4px">Híbrido</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Bottom nav -->
+              <div style="background:#fff;border-top:1px solid #E2E8F0;padding:5px 0;display:flex;flex-shrink:0">
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">🏠<br>Início</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">📚<br>Acadêmico</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⊞<br>Serviços</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#2563EB;font-weight:700;padding:3px">💼<br>Mercado</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⚙️<br>Config.</div>
               </div>
             </div>
 
-            <!-- Slide 2 — Detalhes -->
+            <!-- Slide 2 — Detalhes da Vaga -->
             <div class="slide" id="slide-2">
-              <div class="sh wh">
-                <span class="sh-back">‹</span>
-                <span class="sh-t">Detalhes da vaga</span>
-                <span style="font-size:14px">🔖</span>
+              <!-- Header -->
+              <div style="background:#fff;padding:10px 14px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+                <span style="font-size:16px;color:#64748B">‹</span>
+                <span style="font-size:11px;font-weight:700;color:#1E293B"></span>
+                <span style="font-size:13px;color:#94A3B8">🔖</span>
               </div>
-              <div class="sb wh" style="padding:14px">
-                <div class="det-badge">Interna</div>
-                <div class="det-title">Estágio em Desenvolvimento</div>
-                <div class="det-co">🏢 Inatel</div>
-                <div class="det-co" style="margin-bottom:10px">📍 Santa Rita do Sapucaí, MG</div>
-                <div class="det-tags"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Estágio</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Presencial</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Publicado há 2 dias</span></div>
-                <div class="det-tabs"><div class="det-tab on">Sobre a vaga</div><div class="det-tab">Empresa</div></div>
-                <div class="det-desc-t">Descrição</div>
-                <div class="det-desc">Atuar no desenvolvimento de aplicações e sistemas internos, contribuindo com soluções inovadoras para o ecossistema de inovação do Inatel.</div>
-                <div class="det-desc-t" style="margin-top:10px">Responsabilidades</div>
-                <div class="det-desc">• Desenvolvimento de funcionalidades<br>• Manutenção de sistemas existentes<br>• Participação em code reviews</div>
+              <!-- Content -->
+              <div style="flex:1;overflow:hidden;padding:13px 13px 0;background:#fff">
+                <span style="background:#DBEAFE;color:#1d4ed8;font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:9px">Interna</span>
+                <div style="font-size:14px;font-weight:800;color:#1E293B;margin-bottom:7px;line-height:1.3">Estágio em Desenvolvimento</div>
+                <div style="font-size:9px;color:#64748B;margin-bottom:2px;display:flex;align-items:center;gap:4px">🏢 <span>Inatel</span></div>
+                <div style="font-size:9px;color:#64748B;margin-bottom:10px;display:flex;align-items:center;gap:4px">📍 <span>Santa Rita do Sapucaí, MG</span></div>
+                <div style="display:flex;gap:4px;margin-bottom:12px">
+                  <span style="background:#F1F5F9;color:#475569;font-size:8px;padding:2px 7px;border-radius:4px">Estágio</span>
+                  <span style="background:#F1F5F9;color:#475569;font-size:8px;padding:2px 7px;border-radius:4px">Presencial</span>
+                </div>
+                <div style="display:flex;border-bottom:1px solid #E2E8F0;margin-bottom:10px">
+                  <span style="padding:6px 0 6px;font-size:9px;font-weight:700;color:#2563EB;border-bottom:2px solid #2563EB;padding-right:12px">Sobre a vaga</span>
+                  <span style="padding:6px 12px;font-size:9px;color:#94A3B8">Empresa</span>
+                </div>
+                <div style="font-size:9px;font-weight:700;color:#1E293B;margin-bottom:4px">Descrição</div>
+                <div style="font-size:8px;color:#475569;line-height:1.7;margin-bottom:8px">Atuar no desenvolvimento de aplicações e sistemas internos, contribuindo com soluções inovadoras para a comunidade acadêmica do Inatel.</div>
+                <div style="font-size:9px;font-weight:700;color:#1E293B;margin-bottom:5px">Responsabilidades</div>
+                <ul style="padding-left:13px;font-size:8px;color:#475569;line-height:1.85">
+                  <li>Desenvolvimento de funcionalidades</li>
+                  <li>Manutenção de sistemas existentes</li>
+                  <li>Participação em code reviews</li>
+                  <li>Testes e documentação</li>
+                </ul>
               </div>
-              <div style="padding:10px 12px;background:#fff;border-top:1px solid var(--border);flex-shrink:0">
-                <div class="sbtn sb-blue">Candidatar-se</div>
+              <!-- Bottom button -->
+              <div style="padding:9px 13px 12px;background:#fff;border-top:1px solid #E2E8F0;flex-shrink:0">
+                <div style="background:#2563EB;color:#fff;border-radius:9px;padding:10px;text-align:center;font-size:10px;font-weight:700">Candidatar-se</div>
               </div>
             </div>
 
             <!-- Slide 3 — Modal Sucesso -->
             <div class="slide" id="slide-3">
-              <div class="sh wh"><span class="sh-back">‹</span><span class="sh-t">Detalhes da vaga</span></div>
-              <div class="sb wh" style="padding:14px;position:relative;flex:1">
-                <div style="opacity:.3">
-                  <div class="det-badge">Interna</div>
-                  <div class="det-title">Estágio em Desenvolvimento</div>
-                  <div class="det-co">🏢 Inatel · 📍 Santa Rita do Sapucaí</div>
+              <div style="background:#fff;padding:10px 14px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+                <span style="font-size:16px;color:#64748B">‹</span>
+                <span style="font-size:11px;font-weight:700;color:#1E293B"></span>
+                <span style="font-size:13px;color:#94A3B8">🔖</span>
+              </div>
+              <div style="flex:1;position:relative;overflow:hidden;background:#fff">
+                <div style="padding:13px;opacity:.25">
+                  <span style="background:#DBEAFE;color:#1d4ed8;font-size:8px;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:8px">Interna</span>
+                  <div style="font-size:14px;font-weight:800;color:#1E293B;margin-bottom:6px">Estágio em Desenvolvimento</div>
+                  <div style="font-size:9px;color:#64748B">🏢 Inatel · 📍 Santa Rita do Sapucaí, MG</div>
                 </div>
-                <div class="overlay-m">
-                  <div class="mc">
-                    <div class="mc-ico g">✅</div>
-                    <div class="mc-title">Candidatura enviada com sucesso!</div>
-                    <div class="mc-desc">Seu currículo foi enviado para análise. Acompanhe o status em Minhas Candidaturas.</div>
-                    <div class="mc-btn">Fechar</div>
+                <div style="position:absolute;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px">
+                  <div style="background:#fff;border-radius:16px;padding:20px;text-align:center;width:100%">
+                    <div style="width:50px;height:50px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;margin:0 auto 11px;font-size:22px">✓</div>
+                    <div style="font-size:12px;font-weight:800;color:#1E293B;margin-bottom:7px;line-height:1.4">Candidatura enviada com sucesso!</div>
+                    <div style="font-size:9px;color:#64748B;line-height:1.6;margin-bottom:12px">Seu currículo foi enviado para análise. Acompanhe o status em Minhas Candidaturas.</div>
+                    <div style="background:#2563EB;color:#fff;border-radius:7px;padding:8px 14px;font-size:10px;font-weight:700;display:inline-block">Fechar</div>
                   </div>
                 </div>
               </div>
+              <div style="padding:9px 13px 12px;background:#fff;border-top:1px solid #E2E8F0;flex-shrink:0;opacity:.25">
+                <div style="background:#2563EB;color:#fff;border-radius:9px;padding:10px;text-align:center;font-size:10px;font-weight:700">Candidatar-se</div>
+              </div>
             </div>
 
-            <!-- Slide 4 — Candidaturas -->
+            <!-- Slide 4 — Minhas Candidaturas -->
             <div class="slide" id="slide-4">
-              <div class="sh wh"><span class="sh-back">‹</span><span class="sh-t">Minhas Candidaturas</span></div>
-              <div class="mini-tabs">
-                <div class="mt on">Todas</div>
-                <div class="mt">Em análise</div>
-                <div class="mt">Aprovadas</div>
-                <div class="mt">Rejeitadas</div>
+              <!-- Header -->
+              <div style="background:#fff;padding:10px 14px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+                <span style="font-size:16px;color:#64748B">‹</span>
+                <span style="font-size:11px;font-weight:700;color:#1E293B">Minhas Candidaturas</span>
+                <div style="width:16px"></div>
               </div>
-              <div class="sb wh" style="padding:0;overflow-y:auto">
-                <div class="ci"><div class="ci-ico i">🏛️</div><div style="flex:1"><div class="ci-name">Estágio em Desenvolvimento</div><div class="ci-co">Inatel · Enviada em 20/05/2025</div></div><span class="tbg tan">Em análise</span></div>
-                <div class="ci"><div class="ci-ico e">🌐</div><div style="flex:1"><div class="ci-name">Desenvolvedor Backend</div><div class="ci-co">Hughes do Brasil · 18/05/2025</div></div><span class="tbg tap">Aprovado</span></div>
-                <div class="ci"><div class="ci-ico i">🏛️</div><div style="flex:1"><div class="ci-name">Estágio em Redes</div><div class="ci-co">Inatel · Enviada em 15/05/2025</div></div><span class="tbg trj">Rejeitado</span></div>
-                <div class="ci"><div class="ci-ico e">🌐</div><div style="flex:1"><div class="ci-name">Analista de Sistemas</div><div class="ci-co">Embraer · Enviada em 10/05/2025</div></div><span class="tbg tfn">Finalizado</span></div>
+              <!-- Status tabs -->
+              <div style="display:flex;background:#fff;border-bottom:1px solid #E2E8F0;overflow-x:auto;flex-shrink:0;scrollbar-width:none">
+                <span style="padding:7px 10px;font-size:8px;font-weight:700;color:#2563EB;border-bottom:2px solid #2563EB;white-space:nowrap">Todas</span>
+                <span style="padding:7px 8px;font-size:8px;color:#94A3B8;white-space:nowrap">Em análise</span>
+                <span style="padding:7px 8px;font-size:8px;color:#94A3B8;white-space:nowrap">Aprovadas</span>
+                <span style="padding:7px 8px;font-size:8px;color:#94A3B8;white-space:nowrap">Rejeitadas</span>
+                <span style="padding:7px 8px;font-size:8px;color:#94A3B8;white-space:nowrap">Finalizadas</span>
+              </div>
+              <!-- List -->
+              <div style="flex:1;overflow:hidden;background:#F8FAFC;padding:8px">
+                <div style="background:#fff;border-radius:9px;overflow:hidden;border:1px solid #E2E8F0">
+                  <div style="display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #F1F5F9">
+                    <div style="width:32px;height:32px;border-radius:8px;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏢</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:9px;font-weight:700;color:#1E293B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Estágio em Desenvolvimento</div>
+                      <div style="font-size:8px;color:#64748B">Inatel</div>
+                    </div>
+                    <span style="background:#FEF9C3;color:#854d0e;font-size:7px;font-weight:700;padding:2px 5px;border-radius:4px;white-space:nowrap">Em análise</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #F1F5F9">
+                    <div style="width:32px;height:32px;border-radius:8px;background:#FFEDD5;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏢</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:9px;font-weight:700;color:#1E293B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Desenvolvedor Backend</div>
+                      <div style="font-size:8px;color:#64748B">Hughes do Brasil</div>
+                    </div>
+                    <span style="background:#D1FAE5;color:#065F46;font-size:7px;font-weight:700;padding:2px 5px;border-radius:4px;white-space:nowrap">Aprovado</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid #F1F5F9">
+                    <div style="width:32px;height:32px;border-radius:8px;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏢</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:9px;font-weight:700;color:#1E293B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Estágio em Redes</div>
+                      <div style="font-size:8px;color:#64748B">Inatel</div>
+                    </div>
+                    <span style="background:#FEE2E2;color:#991b1b;font-size:7px;font-weight:700;padding:2px 5px;border-radius:4px;white-space:nowrap">Rejeitado</span>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:9px 10px">
+                    <div style="width:32px;height:32px;border-radius:8px;background:#FFEDD5;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏢</div>
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:9px;font-weight:700;color:#1E293B;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Analista de Sistemas</div>
+                      <div style="font-size:8px;color:#64748B">Embraer</div>
+                    </div>
+                    <span style="background:#F1F5F9;color:#475569;font-size:7px;font-weight:700;padding:2px 5px;border-radius:4px;white-space:nowrap">Finalizado</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Bottom nav -->
+              <div style="background:#fff;border-top:1px solid #E2E8F0;padding:5px 0;display:flex;flex-shrink:0">
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">🏠<br>Início</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">📚<br>Acadêmico</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⊞<br>Serviços</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#2563EB;font-weight:700;padding:3px">💼<br>Mercado</div>
+                <div style="flex:1;text-align:center;font-size:7.5px;color:#94A3B8;padding:3px">⚙️<br>Config.</div>
               </div>
             </div>
 
