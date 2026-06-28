@@ -453,51 +453,223 @@
   <div class="container">
     <div class="label">Análise da Tarefa</div>
     <h2>Diagrama Hierárquico de Tarefas</h2>
-    <p class="lead">Notação Annett &amp; Duncan (1967) — estado "Como será". Meta: candidatar-se a uma vaga e acompanhar o status pelo App Inatel.</p>
+    <p class="lead">Notação Annett &amp; Duncan (1967) — estado "Como será".<br>
+    <strong style="color:var(--text)">Meta:</strong> Candidatar-se a uma vaga e acompanhar o status pelo App Inatel.</p>
 
-    <div class="task-strip">
-      <div class="tn">
-        <div class="tn-num">1</div>
-        <div class="tn-name">Acessar Mercado de Trabalho</div>
-        <div class="tn-plan">Plano: 1.1 › 1.2</div>
-        <div class="tn-prob">Atalho fixo na navegação principal com ícone e nomenclatura claros.</div>
-        <div class="tn-arr">›</div>
-      </div>
-      <div class="tn">
-        <div class="tn-num">2</div>
-        <div class="tn-name">Buscar e filtrar vagas</div>
-        <div class="tn-plan">Plano: 2.1 › 2.2* › 2.3</div>
-        <div class="tn-prob">Múltiplos filtros simultâneos com chips removíveis e opção "Limpar filtros".</div>
-        <div class="tn-arr">›</div>
-      </div>
-      <div class="tn">
-        <div class="tn-num">3</div>
-        <div class="tn-name">Avaliar detalhes da vaga</div>
-        <div class="tn-plan">Plano: 3.1 › 3.2</div>
-        <div class="tn-prob">Badges e cores destacam o tipo da vaga na tela de detalhes.</div>
-        <div class="tn-arr">›</div>
-      </div>
-      <div class="tn">
-        <div class="tn-num">4</div>
-        <div class="tn-name">Efetivar candidatura</div>
-        <div class="tn-plan">Plano: 4.1 / 4.2</div>
-        <div class="tn-prob">Modal de confirmação (interna) ou alerta de redirecionamento (externa).</div>
-        <div class="tn-arr">›</div>
-      </div>
-      <div class="tn">
-        <div class="tn-num">5</div>
-        <div class="tn-name">Acompanhar status</div>
-        <div class="tn-plan">Plano: 5.1 › 5.2</div>
-        <div class="tn-prob">Badges coloridos com status objetivos: Em análise, Aprovado, Rejeitado, Finalizado.</div>
-      </div>
-    </div>
+    <div style="margin-top:32px;overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:#fff;padding:28px 20px 20px;">
+      <svg viewBox="0 0 1060 410" style="min-width:920px;width:100%;display:block;font-family:Inter,system-ui,sans-serif">
 
-    <div class="task-opt">
-      <div class="opt-lbl">Opcional</div>
-      <div class="opt-txt">
-        <strong>6. Editar Perfil Profissional</strong> (Plano: 6.1 › 6.2) — Acesso disponível em qualquer momento do fluxo, sem bloquear as demais etapas.
-        Indicador de "perfil completo" (%) incentiva o preenchimento sem criar fricção obrigatória.
-      </div>
+        <!-- ── ROOT (nível 0 — Objetivo) ── -->
+        <rect x="20" y="12" width="855" height="66" rx="4" fill="#EFF6FF" stroke="#1B3A6B" stroke-width="2"/>
+        <text x="447" y="35" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">0. Candidatar-se a uma vaga e acompanhar o status pelo App Inatel</text>
+        <text x="447" y="53" text-anchor="middle" font-size="9" fill="#475569" font-style="italic">Plano: 1 &gt; 2 &gt; 3 &gt; 4 &gt; 5 / 6</text>
+
+        <!-- Linha vertical do root ao eixo horizontal nível 1 -->
+        <line x1="447" y1="78" x2="447" y2="116" stroke="#64748B" stroke-width="1.5"/>
+        <!-- Eixo horizontal nível 1 (tasks 1-5) -->
+        <line x1="97" y1="116" x2="797" y2="116" stroke="#64748B" stroke-width="1.5"/>
+        <!-- Verticais do eixo às tasks 1-5 -->
+        <line x1="97"  y1="116" x2="97"  y2="136" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="272" y1="116" x2="272" y2="136" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="447" y1="116" x2="447" y2="136" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="622" y1="116" x2="622" y2="136" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="797" y1="116" x2="797" y2="136" stroke="#64748B" stroke-width="1.5"/>
+
+        <!-- Ligação tracejada root → task 6 (opcional) -->
+        <line x1="875" y1="45" x2="977" y2="45" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <line x1="977" y1="45" x2="977" y2="136" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+        <!-- ── NÍVEL 1 — Sub-objetivos ── -->
+
+        <!-- Task 1 -->
+        <rect x="20"  y="136" width="155" height="80" rx="4" fill="#fff" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="97"  y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">1. Acessar a área de</text>
+        <text x="97"  y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">Mercado de Trabalho</text>
+        <text x="97"  y="184" text-anchor="middle" font-size="8.5" fill="#64748B" font-style="italic">Plano: 1.1 &gt; 1.2</text>
+
+        <!-- Task 2 -->
+        <rect x="195" y="136" width="155" height="80" rx="4" fill="#fff" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="272" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">2. Buscar e filtrar</text>
+        <text x="272" y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">vagas de interesse</text>
+        <text x="272" y="184" text-anchor="middle" font-size="8.5" fill="#64748B" font-style="italic">Plano: 2.1 &gt; 2.2* &gt; 2.3</text>
+
+        <!-- Task 3 -->
+        <rect x="370" y="136" width="155" height="80" rx="4" fill="#fff" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="447" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">3. Avaliar detalhes</text>
+        <text x="447" y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">da vaga</text>
+        <text x="447" y="184" text-anchor="middle" font-size="8.5" fill="#64748B" font-style="italic">Plano: 3.1 &gt; 3.2</text>
+
+        <!-- Task 4 -->
+        <rect x="545" y="136" width="155" height="80" rx="4" fill="#fff" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="622" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">4. Efetivar a</text>
+        <text x="622" y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">candidatura</text>
+        <text x="622" y="184" text-anchor="middle" font-size="8.5" fill="#64748B" font-style="italic">Plano: 4.1 / 4.2</text>
+
+        <!-- Task 5 -->
+        <rect x="720" y="136" width="155" height="80" rx="4" fill="#fff" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="797" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">5. Acompanhar o status</text>
+        <text x="797" y="168" text-anchor="middle" font-size="9" font-weight="700" fill="#1B3A6B">das candidaturas</text>
+        <text x="797" y="184" text-anchor="middle" font-size="8.5" fill="#64748B" font-style="italic">Plano: 5.1 &gt; 5.2</text>
+
+        <!-- Task 6 — Opcional (borda tracejada) -->
+        <rect x="900" y="136" width="155" height="80" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="977" y="152" text-anchor="middle" font-size="8" fill="#94A3B8" font-style="italic">opcional</text>
+        <text x="977" y="164" text-anchor="middle" font-size="9" font-weight="700" fill="#64748B">6. Editar Perfil</text>
+        <text x="977" y="176" text-anchor="middle" font-size="9" font-weight="700" fill="#64748B">Profissional</text>
+        <text x="977" y="192" text-anchor="middle" font-size="8.5" fill="#94A3B8" font-style="italic">Plano: 6.1 &gt; 6.2</text>
+
+        <!-- ── Eixos horizontais nível 1 → nível 2 ── -->
+        <!-- T1 -->
+        <line x1="97"  y1="216" x2="97"  y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="64"  y1="252" x2="130" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="64"  y1="252" x2="64"  y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="130" y1="252" x2="130" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <!-- T2 (3 filhos) -->
+        <line x1="272" y1="216" x2="272" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="207" y1="252" x2="337" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="207" y1="252" x2="207" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="272" y1="252" x2="272" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="337" y1="252" x2="337" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <!-- T3 -->
+        <line x1="447" y1="216" x2="447" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="414" y1="252" x2="480" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="414" y1="252" x2="414" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="480" y1="252" x2="480" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <!-- T4 -->
+        <line x1="622" y1="216" x2="622" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="589" y1="252" x2="655" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="589" y1="252" x2="589" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="655" y1="252" x2="655" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <!-- T5 -->
+        <line x1="797" y1="216" x2="797" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="764" y1="252" x2="830" y2="252" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="764" y1="252" x2="764" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="830" y1="252" x2="830" y2="267" stroke="#64748B" stroke-width="1.5"/>
+        <!-- T6 (tracejado) -->
+        <line x1="977" y1="216" x2="977" y2="252" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="944" y1="252" x2="1010" y2="252" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="944" y1="252" x2="944"  y2="267" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="1010" y1="252" x2="1010" y2="267" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- ── NÍVEL 2 — Operações (caixa com linha dupla na base) ── -->
+        <!-- Operação: rect normal + line extra na base (notação A&D) -->
+
+        <!-- 1.1 Tocar no atalho -->
+        <rect x="33"  y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="33"  y1="325" x2="95"  y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="64"  y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">1.1</text>
+        <text x="64"  y="297" text-anchor="middle" font-size="8" fill="#475569">Tocar</text>
+        <text x="64"  y="308" text-anchor="middle" font-size="8" fill="#475569">no atalho</text>
+
+        <!-- 1.2 Ver Home do Mercado -->
+        <rect x="99"  y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="99"  y1="325" x2="161" y1="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <line x1="99"  y1="325" x2="161" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="130" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">1.2</text>
+        <text x="130" y="297" text-anchor="middle" font-size="8" fill="#475569">Ver Home</text>
+        <text x="130" y="308" text-anchor="middle" font-size="8" fill="#475569">do Mercado</text>
+
+        <!-- 2.1 Acessar filtros -->
+        <rect x="176" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="176" y1="325" x2="238" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="207" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">2.1</text>
+        <text x="207" y="297" text-anchor="middle" font-size="8" fill="#475569">Acessar</text>
+        <text x="207" y="308" text-anchor="middle" font-size="8" fill="#475569">filtros</text>
+
+        <!-- 2.2 Escolher filtros * -->
+        <rect x="242" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="242" y1="325" x2="304" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="273" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">2.2</text>
+        <text x="273" y="297" text-anchor="middle" font-size="8" fill="#475569">Escolher</text>
+        <text x="273" y="308" text-anchor="middle" font-size="8" fill="#475569">filtros *</text>
+
+        <!-- 2.3 Aplicar e ver lista -->
+        <rect x="306" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="306" y1="325" x2="368" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="337" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">2.3</text>
+        <text x="337" y="297" text-anchor="middle" font-size="8" fill="#475569">Aplicar e</text>
+        <text x="337" y="308" text-anchor="middle" font-size="8" fill="#475569">ver lista</text>
+
+        <!-- 3.1 Selecionar a vaga -->
+        <rect x="383" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="383" y1="325" x2="445" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="414" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">3.1</text>
+        <text x="414" y="297" text-anchor="middle" font-size="8" fill="#475569">Selecionar</text>
+        <text x="414" y="308" text-anchor="middle" font-size="8" fill="#475569">a vaga</text>
+
+        <!-- 3.2 Ler descrição e requisitos -->
+        <rect x="449" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="449" y1="325" x2="511" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="480" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">3.2</text>
+        <text x="480" y="297" text-anchor="middle" font-size="8" fill="#475569">Ler descrição</text>
+        <text x="480" y="308" text-anchor="middle" font-size="8" fill="#475569">e requisitos</text>
+
+        <!-- 4.1 Vaga interna → sucesso -->
+        <rect x="558" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="558" y1="325" x2="620" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="589" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">4.1</text>
+        <text x="589" y="297" text-anchor="middle" font-size="8" fill="#475569">Vaga interna</text>
+        <text x="589" y="308" text-anchor="middle" font-size="8" fill="#475569">→ sucesso</text>
+
+        <!-- 4.2 Vaga externa → redirec. -->
+        <rect x="624" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="624" y1="325" x2="686" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="655" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">4.2</text>
+        <text x="655" y="297" text-anchor="middle" font-size="8" fill="#475569">Vaga externa</text>
+        <text x="655" y="308" text-anchor="middle" font-size="8" fill="#475569">→ redirec.</text>
+
+        <!-- 5.1 Abrir Minhas Candidaturas -->
+        <rect x="733" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="733" y1="325" x2="795" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="764" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">5.1</text>
+        <text x="764" y="297" text-anchor="middle" font-size="8" fill="#475569">Abrir Minhas</text>
+        <text x="764" y="308" text-anchor="middle" font-size="8" fill="#475569">Candidaturas</text>
+
+        <!-- 5.2 Ver lista e status -->
+        <rect x="799" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="799" y1="325" x2="861" y2="325" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="830" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1E293B">5.2</text>
+        <text x="830" y="297" text-anchor="middle" font-size="8" fill="#475569">Ver lista</text>
+        <text x="830" y="308" text-anchor="middle" font-size="8" fill="#475569">e status</text>
+
+        <!-- 6.1 Acessar Meu Perfil (opcional) -->
+        <rect x="913" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="913" y1="325" x2="975" y2="325" stroke="#94A3B8" stroke-width="2.5"/>
+        <text x="944" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#64748B">6.1</text>
+        <text x="944" y="297" text-anchor="middle" font-size="8" fill="#94A3B8">Acessar</text>
+        <text x="944" y="308" text-anchor="middle" font-size="8" fill="#94A3B8">Meu Perfil</text>
+
+        <!-- 6.2 Atualizar dados e CV (opcional) -->
+        <rect x="979" y="267" width="62" height="58" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="979" y1="325" x2="1041" y2="325" stroke="#94A3B8" stroke-width="2.5"/>
+        <text x="1010" y="285" text-anchor="middle" font-size="8.5" font-weight="700" fill="#64748B">6.2</text>
+        <text x="1010" y="297" text-anchor="middle" font-size="8" fill="#94A3B8">Atualizar</text>
+        <text x="1010" y="308" text-anchor="middle" font-size="8" fill="#94A3B8">dados e CV</text>
+
+        <!-- ── LEGENDA ── -->
+        <line x1="0" y1="348" x2="1060" y2="348" stroke="#E2E8F0" stroke-width="1"/>
+
+        <!-- Legenda: Objetivo -->
+        <rect x="16" y="360" width="36" height="26" rx="3" fill="#EFF6FF" stroke="#1B3A6B" stroke-width="1.5"/>
+        <text x="60" y="374" font-size="9" fill="#475569">Objetivo / Sub-objetivo</text>
+
+        <!-- Legenda: Operação -->
+        <rect x="196" y="360" width="36" height="26" rx="3" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5"/>
+        <line x1="196" y1="386" x2="232" y2="386" stroke="#1B3A6B" stroke-width="2.5"/>
+        <text x="242" y="374" font-size="9" fill="#475569">Operação (tarefa final)</text>
+
+        <!-- Legenda: Opcional -->
+        <rect x="388" y="360" width="36" height="26" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="432" y="374" font-size="9" fill="#475569">Tarefa Opcional</text>
+
+        <!-- Legenda: símbolos de plano -->
+        <text x="560" y="374" font-size="9" fill="#475569">&gt; Sequencial</text>
+        <text x="660" y="374" font-size="9" fill="#475569">/ Seleção ou Alternativas</text>
+        <text x="830" y="374" font-size="9" fill="#475569">* Iteração</text>
+
+        <text x="16" y="398" font-size="8" fill="#94A3B8" font-style="italic">Annett &amp; Duncan (1967)</text>
+
+      </svg>
     </div>
   </div>
 </section>
