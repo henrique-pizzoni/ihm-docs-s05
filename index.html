@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercado de Trabalho — App Inatel | Henrique Pizzoni · 527</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    :root {
+      --navy: #1B3A6B; --blue: #2563EB; --blue-l: #EFF6FF;
+      --orange: #EA580C; --green: #10B981; --green-l: #D1FAE5;
+      --text: #1E293B; --muted: #64748B; --border: #E2E8F0; --bg: #F8FAFC;
+    }
+    html { scroll-behavior: smooth }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: var(--text); line-height: 1.6 }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-size: 14px; font-weight: 800; color: var(--navy); letter-spacing: -.3px }
+    .nav-brand span { color: var(--blue) }
+    .nav-links { display: flex; gap: 28px }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .2s }
+    .nav-links a:hover { color: var(--blue) }
+    .nav-btn {
+      font-size: 13px; font-weight: 700; color: #fff;
+      background: var(--blue); padding: 8px 18px; border-radius: 8px;
+      text-decoration: none; transition: background .2s
+    }
+    .nav-btn:hover { background: #1d4ed8 }
+    @media (max-width: 700px) { .nav-links { display: none } }
+
+    /* ─── LAYOUT ─── */
+    section { padding: 84px 24px }
+    .container { max-width: 960px; margin: 0 auto }
+    .label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px }
+    h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; color: var(--navy); line-height: 1.15; margin-bottom: 14px }
+    .lead { font-size: 16px; color: var(--muted); line-height: 1.8 }
+
+    /* ─── HERO ─── */
+    #hero {
+      background: linear-gradient(135deg, #0c1e42 0%, #1B3A6B 55%, #1a3e82 100%);
+      padding: 110px 24px 130px; text-align: center; position: relative; overflow: hidden
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 18% 60%, rgba(37,99,235,.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 40%, rgba(234,88,12,.22) 0%, transparent 55%)
+    }
+    .hz { position: relative; z-index: 1 }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9); font-size: 12px; font-weight: 600;
+      padding: 6px 16px; border-radius: 30px; margin-bottom: 28px
+    }
+    #hero h1 {
+      font-size: clamp(34px, 6vw, 60px); font-weight: 900; color: #fff;
+      line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 18px
+    }
+    #hero h1 em { color: #60A5FA; font-style: normal }
+    .hero-desc { color: rgba(255,255,255,.72); font-size: 17px; max-width: 520px; margin: 0 auto 36px }
+    .hero-meta { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px }
+    .hm { color: rgba(255,255,255,.6); font-size: 14px }
+    .hm strong { color: #fff; font-weight: 700 }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap }
+    .btn-w {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--navy); font-size: 15px; font-weight: 700;
+      padding: 14px 28px; border-radius: 12px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 24px rgba(0,0,0,.2)
+    }
+    .btn-w:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,.3) }
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25);
+      color: #fff; font-size: 15px; font-weight: 600;
+      padding: 14px 28px; border-radius: 12px; text-decoration: none; transition: background .2s
+    }
+    .btn-g:hover { background: rgba(255,255,255,.18) }
+
+    /* ─── FUNCIONALIDADE ─── */
+    #funcionalidade { background: var(--bg) }
+    .just-text { font-size: 15px; color: var(--muted); line-height: 1.85; max-width: 700px; margin-bottom: 32px }
+    .persona-wrap {
+      background: #fff; border-radius: 20px; padding: 32px;
+      border: 1px solid var(--border); display: flex; gap: 28px; align-items: flex-start;
+      margin-bottom: 28px
+    }
+    @media (max-width: 600px) { .persona-wrap { flex-direction: column } }
+    .p-avatar {
+      width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; font-weight: 900; color: #fff
+    }
+    .p-name { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 2px }
+    .p-role { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 12px }
+    .p-quote {
+      font-style: italic; font-size: 15px; color: var(--muted); line-height: 1.8;
+      border-left: 3px solid var(--blue); padding-left: 16px
+    }
+    .crit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px }
+    .crit {
+      background: #fff; border-radius: 14px; padding: 22px;
+      border: 1px solid var(--border)
+    }
+    .crit-ico { font-size: 26px; margin-bottom: 10px }
+    .crit-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px }
+    .crit-text { font-size: 13px; color: var(--muted); line-height: 1.6 }
+
+    /* ─── USER STORY ─── */
+    #user-story { background: #fff }
+    .story-card {
+      background: var(--navy); border-radius: 20px; padding: 42px;
+      position: relative; overflow: hidden; margin-bottom: 24px
+    }
+    .story-card::after {
+      content: '"'; position: absolute; right: 16px; top: -30px;
+      font-size: 260px; line-height: 1; color: rgba(255,255,255,.05);
+      font-family: Georgia, serif; pointer-events: none
+    }
+    .story-card p {
+      font-size: 18px; font-style: italic; color: rgba(255,255,255,.9);
+      line-height: 1.85; position: relative; z-index: 1; max-width: 800px
+    }
+    .story-source { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,.38); position: relative; z-index: 1 }
+    .ac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(256px, 1fr)); gap: 12px }
+    .ac {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px
+    }
+    .ac-ck {
+      width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0;
+      background: var(--green-l); color: var(--green); font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 1px
+    }
+    .ac p { font-size: 13px; color: var(--muted); line-height: 1.6 }
+    .ac p strong { color: var(--text); font-weight: 700 }
+
+    /* ─── ANÁLISE ─── */
+    #analise { background: var(--bg) }
+    .task-strip { display: flex; overflow-x: auto; padding-bottom: 6px; margin-top: 36px }
+    .tn {
+      flex: 1; min-width: 152px; background: #fff;
+      border: 1px solid var(--border); padding: 22px 14px;
+      text-align: center; position: relative
+    }
+    .tn:first-child { border-radius: 14px 0 0 14px }
+    .tn:last-child { border-radius: 0 14px 14px 0 }
+    .tn + .tn { border-left: none }
+    .tn-num {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff;
+      font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 10px
+    }
+    .tn-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px }
+    .tn-plan { font-size: 11px; color: var(--blue); font-weight: 600; font-style: italic; margin-bottom: 8px }
+    .tn-prob { font-size: 11px; color: var(--muted); line-height: 1.5 }
+    .tn-arr {
+      position: absolute; right: -15px; top: 50%; transform: translateY(-50%); z-index: 2;
+      width: 28px; height: 28px; border-radius: 50%; background: var(--blue);
+      color: #fff; font-size: 13px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(37,99,235,.4)
+    }
+    .tn:last-child .tn-arr { display: none }
+    .task-opt {
+      border: 2px dashed var(--border); background: #fff; border-radius: 14px;
+      padding: 22px; margin-top: 20px; display: flex; gap: 20px; align-items: center
+    }
+    .opt-lbl {
+      font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+      letter-spacing: 1px; writing-mode: vertical-rl; white-space: nowrap
+    }
+    .opt-txt { font-size: 13px; color: var(--muted); line-height: 1.7 }
+    .opt-txt strong { color: var(--text) }
+
+    /* ─── UML ─── */
+    #uml { background: #fff }
+    .uml-box { margin-top: 36px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--bg) }
+    .uml-header { background: #fff; padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center }
+    .uml-header span { font-size: 13px; font-weight: 700; color: var(--text) }
+    .uml-link { font-size: 12px; color: var(--blue); font-weight: 600; text-decoration: none }
+    .uml-svg-wrap { overflow-x: auto; padding: 24px }
+    .uml-legend { display: flex; gap: 20px; flex-wrap: wrap; padding: 16px 24px; border-top: 1px solid var(--border); background: #fff }
+    .uml-leg-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted) }
+
+    /* ─── TELAS ─── */
+    #telas { background: var(--bg) }
+    .telas-layout {
+      display: grid; grid-template-columns: auto 1fr; gap: 56px;
+      margin-top: 40px; align-items: center
+    }
+    @media (max-width: 720px) { .telas-layout { grid-template-columns: 1fr; justify-items: center } }
+    .phone {
+      width: 300px; background: #111; border-radius: 46px;
+      padding: 14px 14px 22px; box-shadow: 0 40px 80px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08);
+      flex-shrink: 0
+    }
+    .phone-inner { border-radius: 34px; overflow: hidden; background: #fff; height: 600px; position: relative }
+    .phone-inner iframe { width: 390px; height: 844px; transform: scale(0.738); transform-origin: top left; border: none }
+    .phone-chin { width: 44px; height: 4px; background: #333; border-radius: 2px; margin: 10px auto 0 }
+    .feats { display: flex; flex-direction: column; gap: 18px }
+    .feat { display: flex; gap: 14px; align-items: flex-start }
+    .feat-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--blue); flex-shrink: 0; margin-top: 5px }
+    .feat-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px }
+    .feat-desc { font-size: 13px; color: var(--muted); line-height: 1.6 }
+
+    /* ─── DEMO ─── */
+    #demo { background: #fff }
+    .demo-layout {
+      display: grid; grid-template-columns: 1fr auto; gap: 48px;
+      margin-top: 40px; align-items: start
+    }
+    @media (max-width: 720px) {
+      .demo-layout { grid-template-columns: 1fr }
+      .demo-phone-wrap { display: none }
+    }
+    .ds-list { display: flex; flex-direction: column; gap: 12px }
+    .ds {
+      padding: 18px; border-radius: 14px; border: 2px solid var(--border);
+      cursor: pointer; transition: all .2s; display: flex; gap: 14px; align-items: flex-start
+    }
+    .ds:hover { border-color: #BFDBFE }
+    .ds.on { border-color: var(--blue); background: var(--blue-l) }
+    .ds-n {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--border);
+      color: var(--muted); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .2s
+    }
+    .ds.on .ds-n { background: var(--blue); color: #fff }
+    .ds-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px }
+    .ds-desc { font-size: 12px; color: var(--muted); line-height: 1.5 }
+    .demo-phone-wrap { flex-shrink: 0 }
+    .demo-phone {
+      width: 250px; background: #111; border-radius: 38px;
+      padding: 12px 12px 18px; box-shadow: 0 28px 56px rgba(0,0,0,.25)
+    }
+    .demo-screen { border-radius: 28px; overflow: hidden; background: var(--bg); height: 500px; position: relative }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease; display: flex; flex-direction: column; overflow: hidden }
+    .slide.on { opacity: 1 }
+    .prog-row { display: flex; gap: 5px; padding: 0 0 12px; margin-top: 12px }
+    .pdot { flex: 1; height: 3px; border-radius: 2px; background: var(--border); transition: background .3s }
+    .pdot.on { background: var(--blue) }
+
+    /* ── slide components ── */
+    .sh { padding: 11px 13px; display: flex; align-items: center; gap: 8px; flex-shrink: 0 }
+    .sh.navy { background: var(--navy); color: #fff }
+    .sh.blue { background: linear-gradient(135deg, #0c1e42, #1B3A6B); color: #fff }
+    .sh.wh { background: #fff; border-bottom: 1px solid var(--border); color: var(--text) }
+    .sh-t { font-size: 12px; font-weight: 700; flex: 1 }
+    .sh-back { font-size: 16px; opacity: .7 }
+    .sb { flex: 1; padding: 11px; overflow: hidden }
+    .sb.bg { background: var(--bg) }
+    .sb.wh { background: #fff }
+    .sc { background: #fff; border-radius: 10px; padding: 11px; margin-bottom: 7px; border: 1px solid var(--border) }
+    .sc-t { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 3px }
+    .sc-s { font-size: 10px; color: var(--muted); margin-bottom: 4px }
+    .tbg { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 3px }
+    .ti { background: #DBEAFE; color: #1d4ed8 } .te { background: #FFEDD5; color: #c2410c }
+    .tan { background: #FEF9C3; color: #854d0e } .tap { background: #D1FAE5; color: #065f46 }
+    .trj { background: #FEE2E2; color: #991b1b } .tfn { background: #F1F5F9; color: #475569 }
+    .sbtn { margin: 8px 11px 0; padding: 11px; border-radius: 9px; text-align: center; font-size: 11px; font-weight: 700; color: #fff }
+    .sb-blue { background: var(--blue) } .sb-org { background: var(--orange) }
+    .overlay-m { position: absolute; inset: 0; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; padding: 16px }
+    .mc { background: #fff; border-radius: 18px; padding: 22px; text-align: center; width: 100% }
+    .mc-ico { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px }
+    .mc-ico.g { background: #D1FAE5 } .mc-ico.a { background: #FEF3C7 }
+    .mc-title { font-size: 13px; font-weight: 800; color: var(--text); margin-bottom: 7px; line-height: 1.4 }
+    .mc-desc { font-size: 10px; color: var(--muted); line-height: 1.6; margin-bottom: 14px }
+    .mc-btn { background: var(--blue); color: #fff; border-radius: 8px; padding: 9px 16px; font-size: 11px; font-weight: 700; display: inline-block }
+    /* slide 1 – home */
+    .home-hdr { background: #fff; padding: 14px 13px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center }
+    .home-logo { font-size: 16px; font-weight: 900; color: var(--navy) }
+    .home-sub { font-size: 11px; color: var(--muted) }
+    .mkt-card { margin: 10px 11px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), #1e4db7); padding: 16px; color: #fff; cursor: pointer }
+    .mkt-card-t { font-size: 12px; font-weight: 800; margin-bottom: 4px }
+    .mkt-card-d { font-size: 10px; opacity: .72; margin-bottom: 12px }
+    .mkt-card-btn { display: inline-block; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.3); color: #fff; font-size: 10px; font-weight: 700; padding: 6px 14px; border-radius: 8px }
+    /* slide 2 – mercado hub */
+    .qi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 9px }
+    .qi { background: #fff; border-radius: 10px; padding: 10px; text-align: center; border: 1px solid var(--border) }
+    .qi-ico { font-size: 18px; margin-bottom: 3px }
+    .qi-lbl { font-size: 9px; font-weight: 600; color: var(--muted) }
+    /* slide 3 – detalhes */
+    .det-badge { display: inline-block; background: #DBEAFE; color: #1d4ed8; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 5px; margin-bottom: 8px }
+    .det-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 6px; line-height: 1.3 }
+    .det-co { font-size: 11px; color: var(--muted); margin-bottom: 3px }
+    .det-tags { margin-bottom: 12px }
+    .det-desc-t { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 4px }
+    .det-desc { font-size: 10px; color: var(--muted); line-height: 1.6 }
+    .det-tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 12px }
+    .det-tab { padding: 8px 12px; font-size: 11px; font-weight: 600; color: var(--muted) }
+    .det-tab.on { color: var(--blue); border-bottom: 2px solid var(--blue) }
+    /* slide 5 – candidaturas */
+    .mini-tabs { display: flex; background: #fff; border-bottom: 1px solid var(--border); flex-shrink: 0; overflow-x: auto }
+    .mt { padding: 8px 11px; font-size: 10px; font-weight: 600; color: var(--muted); white-space: nowrap; border-bottom: 2px solid transparent }
+    .mt.on { color: var(--blue); border-bottom-color: var(--blue) }
+    .ci { display: flex; align-items: center; gap: 10px; padding: 11px 11px; border-bottom: 1px solid var(--border) }
+    .ci-ico { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0 }
+    .ci-ico.i { background: #DBEAFE } .ci-ico.e { background: #FFEDD5 }
+    .ci-name { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 1px }
+    .ci-co { font-size: 10px; color: var(--muted) }
+
+    /* ─── WIREFRAME ─── */
+    #wireframe { background: var(--bg) }
+    .wf-wrap { margin-top: 36px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden }
+    .wf-tabs { display: flex; background: #fff; border-bottom: 1px solid var(--border) }
+    .wf-tab { padding: 14px 22px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s }
+    .wf-tab.on { color: var(--blue); border-bottom-color: var(--blue) }
+    .wf-frame { display: none; width: 100%; height: 680px; border: none; background: #fff }
+    .wf-frame.on { display: block }
+    .wf-fallback { padding: 40px; text-align: center; background: #fff }
+    .wf-fallback p { color: var(--muted); font-size: 14px; margin-bottom: 12px }
+    .wf-fallback a { color: var(--blue); font-weight: 600 }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 56px 24px; text-align: center }
+    footer h3 { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 8px }
+    footer > .container > p { color: rgba(255,255,255,.55); font-size: 14px; margin-bottom: 32px }
+    .ft-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px }
+    .ft-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; font-size: 14px; font-weight: 600;
+      padding: 11px 22px; border-radius: 10px; text-decoration: none; transition: background .2s
+    }
+    .ft-link:hover { background: rgba(255,255,255,.2) }
+    .ft-divider { width: 48px; height: 1px; background: rgba(255,255,255,.12); margin: 0 auto 24px }
+    .ft-copy { font-size: 12px; color: rgba(255,255,255,.28) }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-brand">App Inatel <span>· IHM</span></div>
+  <div class="nav-links">
+    <a href="#funcionalidade">Funcionalidade</a>
+    <a href="#user-story">User Story</a>
+    <a href="#analise">Análise</a>
+    <a href="#uml">UML</a>
+    <a href="#telas">Telas</a>
+    <a href="#demo">Demo</a>
+    <a href="#wireframe">Wireframe</a>
+  </div>
+  <a class="nav-btn" href="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/" target="_blank">Abrir App →</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hz">
+    <div class="hero-chip">💼 Trabalho Final — Interface Homem-Máquina</div>
+    <h1>Mercado de<br><em>Trabalho</em></h1>
+    <p class="hero-desc">Nova aba do App Inatel para busca e candidatura a vagas de estágio e emprego — completamente funcional, de ponta a ponta.</p>
+    <div class="hero-meta">
+      <div class="hm"><strong>Henrique Pizzoni</strong></div>
+      <div class="hm">Matrícula <strong>527</strong></div>
+      <div class="hm">INATEL · <strong>S05</strong></div>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-w" href="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/" target="_blank">🚀 Acessar o App</a>
+      <a class="btn-g" href="#demo">Ver demonstração ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FUNCIONALIDADE ══ -->
+<section id="funcionalidade">
+  <div class="container">
+    <div class="label">Justificativa</div>
+    <h2>Por que essa funcionalidade?</h2>
+    <p class="just-text">
+      O App Inatel concentra a vida acadêmica do aluno — notas, horários, avisos — mas não oferece suporte ao próximo passo natural: a entrada no mercado de trabalho. Alunos de engenharia precisam buscar vagas em plataformas externas desconexas, sem integração com seu perfil acadêmico e sem visibilidade de oportunidades internas da própria instituição.
+    </p>
+
+    <div class="persona-wrap">
+      <div class="p-avatar">M</div>
+      <div>
+        <div class="p-name">Mariana Silva</div>
+        <div class="p-role">Estudante de Eng. de Telecomunicações · 3º ano · INATEL</div>
+        <div class="p-quote">
+          "Quero encontrar um estágio na minha área sem sair do app que já uso todos os dias. Precisaria de filtros por área e poder acompanhar o status das candidaturas em um único lugar."
+        </div>
+      </div>
+    </div>
+
+    <div class="crit-grid">
+      <div class="crit">
+        <div class="crit-ico">🎓</div>
+        <div class="crit-title">Pré-cadastro do Aluno</div>
+        <div class="crit-text">Perfil profissional com dados acadêmicos, experiências, áreas de interesse e upload de currículo em PDF.</div>
+      </div>
+      <div class="crit">
+        <div class="crit-ico">🏷️</div>
+        <div class="crit-title">Identificação Visual</div>
+        <div class="crit-text">Badges coloridos diferenciam claramente vagas <strong>Internas</strong> (azul) e <strong>Externas</strong> (laranja) em toda a interface.</div>
+      </div>
+      <div class="crit">
+        <div class="crit-ico">🔍</div>
+        <div class="crit-title">Filtros de Busca</div>
+        <div class="crit-text">Múltiplos filtros simultâneos por área, modalidade e tipo de trabalho. Resultados exibidos com chips removíveis.</div>
+      </div>
+      <div class="crit">
+        <div class="crit-ico">✅</div>
+        <div class="crit-title">Aplicação Interna</div>
+        <div class="crit-text">Modal de sucesso confirma a candidatura. Vagas já inscritas mostram badge "Inscrito" e botão de navegação direta.</div>
+      </div>
+      <div class="crit">
+        <div class="crit-ico">↗️</div>
+        <div class="crit-title">Aplicação Externa</div>
+        <div class="crit-text">Alerta de redirecionamento antes de abrir o site da empresa parceira — o usuário sabe exatamente o que vai acontecer.</div>
+      </div>
+      <div class="crit">
+        <div class="crit-ico">📋</div>
+        <div class="crit-title">Minhas Candidaturas</div>
+        <div class="crit-text">Histórico com badges de status coloridos: Em análise, Aprovado, Rejeitado e Finalizado. Cada item é clicável.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ USER STORY ══ -->
+<section id="user-story">
+  <div class="container">
+    <div class="label">User Story</div>
+    <h2>História de Usuário</h2>
+    <div class="story-card">
+      <p>Como aluno, eu quero acessar uma aba dedicada ao <strong style="color:#93C5FD">"Mercado de Trabalho"</strong> no aplicativo, onde eu possa manter um pré-cadastro com meu currículo e buscar vagas através de filtros específicos (como área e tipo de trabalho), para que eu consiga me candidatar de forma rápida a oportunidades internas e ser devidamente redirecionado para os sites de empresas parceiras em vagas externas.</p>
+      <div class="story-source">Implementação da Aba "Mercado de Trabalho" no App Inatel — IHM S05 · Henrique Pizzoni 527</div>
+    </div>
+    <div class="ac-grid">
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Pré-cadastro:</strong> formulário com dados pessoais, perfil profissional e upload de currículo em PDF.</p></div>
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Identificação visual:</strong> diferenciação clara entre vagas internas e externas com badges e cores.</p></div>
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Filtros de busca:</strong> múltiplos filtros simultâneos por área, modalidade e tipo de trabalho.</p></div>
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Aplicação interna:</strong> modal de sucesso ao realizar candidatura; prevenção de inscrição duplicada.</p></div>
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Aplicação externa:</strong> alerta de redirecionamento explicado antes da saída do aplicativo.</p></div>
+      <div class="ac"><div class="ac-ck">✓</div><p><strong>Acompanhamento:</strong> seção "Minhas Candidaturas" com badges de status e acesso direto à vaga.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANÁLISE DA TAREFA ══ -->
+<section id="analise">
+  <div class="container">
+    <div class="label">Análise da Tarefa</div>
+    <h2>Diagrama Hierárquico de Tarefas</h2>
+    <p class="lead">Notação Annett &amp; Duncan (1967) — estado "Como será". Meta: candidatar-se a uma vaga e acompanhar o status pelo App Inatel.</p>
+
+    <div class="task-strip">
+      <div class="tn">
+        <div class="tn-num">1</div>
+        <div class="tn-name">Acessar Mercado de Trabalho</div>
+        <div class="tn-plan">Plano: 1.1 › 1.2</div>
+        <div class="tn-prob">Atalho fixo na navegação principal com ícone e nomenclatura claros.</div>
+        <div class="tn-arr">›</div>
+      </div>
+      <div class="tn">
+        <div class="tn-num">2</div>
+        <div class="tn-name">Buscar e filtrar vagas</div>
+        <div class="tn-plan">Plano: 2.1 › 2.2* › 2.3</div>
+        <div class="tn-prob">Múltiplos filtros simultâneos com chips removíveis e opção "Limpar filtros".</div>
+        <div class="tn-arr">›</div>
+      </div>
+      <div class="tn">
+        <div class="tn-num">3</div>
+        <div class="tn-name">Avaliar detalhes da vaga</div>
+        <div class="tn-plan">Plano: 3.1 › 3.2</div>
+        <div class="tn-prob">Badges e cores destacam o tipo da vaga na tela de detalhes.</div>
+        <div class="tn-arr">›</div>
+      </div>
+      <div class="tn">
+        <div class="tn-num">4</div>
+        <div class="tn-name">Efetivar candidatura</div>
+        <div class="tn-plan">Plano: 4.1 / 4.2</div>
+        <div class="tn-prob">Modal de confirmação (interna) ou alerta de redirecionamento (externa).</div>
+        <div class="tn-arr">›</div>
+      </div>
+      <div class="tn">
+        <div class="tn-num">5</div>
+        <div class="tn-name">Acompanhar status</div>
+        <div class="tn-plan">Plano: 5.1 › 5.2</div>
+        <div class="tn-prob">Badges coloridos com status objetivos: Em análise, Aprovado, Rejeitado, Finalizado.</div>
+      </div>
+    </div>
+
+    <div class="task-opt">
+      <div class="opt-lbl">Opcional</div>
+      <div class="opt-txt">
+        <strong>6. Editar Perfil Profissional</strong> (Plano: 6.1 › 6.2) — Acesso disponível em qualquer momento do fluxo, sem bloquear as demais etapas.
+        Indicador de "perfil completo" (%) incentiva o preenchimento sem criar fricção obrigatória.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ UML ══ -->
+<section id="uml">
+  <div class="container">
+    <div class="label">Fluxo de Informação</div>
+    <h2>Diagrama de Classes</h2>
+    <p class="lead">Modelagem conceitual dos principais elementos e relações da funcionalidade.</p>
+
+    <div class="uml-box">
+      <div class="uml-header">
+        <span>Diagrama de Classes — Mercado de Trabalho</span>
+        <a class="uml-link" href="assets/uml_app.pdf" target="_blank">Ver PDF completo ↗</a>
+      </div>
+      <div class="uml-svg-wrap">
+        <svg viewBox="0 0 940 420" style="min-width:760px;width:100%;display:block;font-family:Inter,system-ui,sans-serif">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0 1 L9 5 L0 9 z" fill="#94A3B8"/>
+            </marker>
+            <marker id="arr-dashed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0 1 L9 5 L0 9 z" fill="#94A3B8"/>
+            </marker>
+            <marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M0 0 L11 6 L0 12 z" fill="#fff" stroke="#94A3B8" stroke-width="1.5"/>
+            </marker>
+            <marker id="dia" viewBox="0 0 16 10" refX="0" refY="5" markerWidth="10" markerHeight="8" orient="auto-start-reverse">
+              <path d="M0 5 L7 0 L14 5 L7 10 z" fill="#1B3A6B"/>
+            </marker>
+          </defs>
+
+          <!-- ── TOP ROW ── -->
+          <!-- Dashboard -->
+          <rect x="10" y="16" width="128" height="76" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="10" y="16" width="128" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="10" y="36" width="128" height="6" fill="#EFF6FF"/>
+          <text x="74" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">Dashboard</text>
+          <text x="74" y="54" text-anchor="middle" font-size="9" fill="#64748B">− nomeUsuario: String</text>
+          <text x="74" y="66" text-anchor="middle" font-size="9" fill="#64748B">+ acessarMercado()</text>
+          <text x="74" y="78" text-anchor="middle" font-size="9" fill="#64748B">+ exibirResumo()</text>
+
+          <!-- MercadoController -->
+          <rect x="172" y="16" width="170" height="76" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="172" y="16" width="170" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="172" y="36" width="170" height="6" fill="#EFF6FF"/>
+          <text x="257" y="33" text-anchor="middle" font-size="10" font-weight="700" fill="#1B3A6B">MercadoTrabalhoController</text>
+          <text x="257" y="54" text-anchor="middle" font-size="9" fill="#64748B">− vagas: List&lt;Vaga&gt;</text>
+          <text x="257" y="66" text-anchor="middle" font-size="9" fill="#64748B">+ buscarVagas() + candidatar()</text>
+          <text x="257" y="78" text-anchor="middle" font-size="9" fill="#64748B">+ aplicarFiltros() + acompanharStatus()</text>
+
+          <!-- Aluno -->
+          <rect x="376" y="16" width="116" height="76" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="376" y="16" width="116" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="376" y="36" width="116" height="6" fill="#EFF6FF"/>
+          <text x="434" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">Aluno</text>
+          <text x="434" y="54" text-anchor="middle" font-size="9" fill="#64748B">− id, nome, email</text>
+          <text x="434" y="66" text-anchor="middle" font-size="9" fill="#64748B">− curso: String</text>
+          <text x="434" y="78" text-anchor="middle" font-size="9" fill="#64748B">+ acessarPerfil()</text>
+
+          <!-- PerfilProfissional -->
+          <rect x="526" y="16" width="168" height="76" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="526" y="16" width="168" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="526" y="36" width="168" height="6" fill="#EFF6FF"/>
+          <text x="610" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">PerfilProfissional</text>
+          <text x="610" y="54" text-anchor="middle" font-size="9" fill="#64748B">− historicoProfissional: String</text>
+          <text x="610" y="66" text-anchor="middle" font-size="9" fill="#64748B">− areasInteresse: List</text>
+          <text x="610" y="78" text-anchor="middle" font-size="9" fill="#64748B">+ salvarPerfil() + editarPerfil()</text>
+
+          <!-- CurriculoPDF -->
+          <rect x="730" y="16" width="138" height="76" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="730" y="16" width="138" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="730" y="36" width="138" height="6" fill="#EFF6FF"/>
+          <text x="799" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">CurriculoPDF</text>
+          <text x="799" y="54" text-anchor="middle" font-size="9" fill="#64748B">− nomeArquivo: String</text>
+          <text x="799" y="66" text-anchor="middle" font-size="9" fill="#64748B">− tamanhoMB: double</text>
+          <text x="799" y="78" text-anchor="middle" font-size="9" fill="#64748B">+ uploadArquivo()</text>
+
+          <!-- ── BOTTOM ROW ── -->
+          <!-- FiltroVaga -->
+          <rect x="10" y="248" width="128" height="72" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="10" y="248" width="128" height="26" rx="5" fill="#F0FDF4"/>
+          <rect x="10" y="268" width="128" height="6" fill="#F0FDF4"/>
+          <text x="74" y="265" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">FiltroVaga</text>
+          <text x="74" y="284" text-anchor="middle" font-size="9" fill="#64748B">− areaDesejada, modalidade</text>
+          <text x="74" y="296" text-anchor="middle" font-size="9" fill="#64748B">+ aplicarFiltro()</text>
+          <text x="74" y="308" text-anchor="middle" font-size="9" fill="#64748B">+ limparFiltros()</text>
+
+          <!-- Vaga abstract -->
+          <rect x="172" y="228" width="136" height="90" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="172" y="228" width="136" height="36" rx="5" fill="#F8FAFC"/>
+          <rect x="172" y="256" width="136" height="8" fill="#F8FAFC"/>
+          <text x="240" y="243" text-anchor="middle" font-size="9" fill="#94A3B8" font-style="italic">&lt;&lt;abstract&gt;&gt;</text>
+          <text x="240" y="257" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B" font-style="italic">Vaga</text>
+          <text x="240" y="278" text-anchor="middle" font-size="9" fill="#64748B"># id, titulo, area, empresa</text>
+          <text x="240" y="290" text-anchor="middle" font-size="9" fill="#64748B">+ exibirDetalhes()</text>
+          <text x="240" y="302" text-anchor="middle" font-size="9" fill="#64748B">+ candidatar()</text>
+
+          <!-- VagaInterna -->
+          <rect x="352" y="214" width="128" height="68" rx="5" fill="#fff" stroke="#BFDBFE" stroke-width="1.5"/>
+          <rect x="352" y="214" width="128" height="24" rx="5" fill="#DBEAFE"/>
+          <rect x="352" y="230" width="128" height="8" fill="#DBEAFE"/>
+          <text x="416" y="229" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8">VagaInterna</text>
+          <text x="416" y="249" text-anchor="middle" font-size="9" fill="#64748B">− setor: String</text>
+          <text x="416" y="261" text-anchor="middle" font-size="9" fill="#64748B">+ candidatar()</text>
+          <text x="416" y="273" text-anchor="middle" font-size="9" fill="#64748B">+ gerarModal()</text>
+
+          <!-- VagaExterna -->
+          <rect x="352" y="308" width="128" height="68" rx="5" fill="#fff" stroke="#FED7AA" stroke-width="1.5"/>
+          <rect x="352" y="308" width="128" height="24" rx="5" fill="#FFEDD5"/>
+          <rect x="352" y="324" width="128" height="8" fill="#FFEDD5"/>
+          <text x="416" y="323" text-anchor="middle" font-size="11" font-weight="700" fill="#c2410c">VagaExterna</text>
+          <text x="416" y="343" text-anchor="middle" font-size="9" fill="#64748B">− urlEmpresa: String</text>
+          <text x="416" y="355" text-anchor="middle" font-size="9" fill="#64748B">+ redirecionar()</text>
+          <text x="416" y="367" text-anchor="middle" font-size="9" fill="#64748B">+ abrirNavegador()</text>
+
+          <!-- Candidatura -->
+          <rect x="526" y="240" width="140" height="80" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="526" y="240" width="140" height="26" rx="5" fill="#EFF6FF"/>
+          <rect x="526" y="260" width="140" height="6" fill="#EFF6FF"/>
+          <text x="596" y="257" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A6B">Candidatura</text>
+          <text x="596" y="278" text-anchor="middle" font-size="9" fill="#64748B">− id: long</text>
+          <text x="596" y="290" text-anchor="middle" font-size="9" fill="#64748B">− dataEnvio: date</text>
+          <text x="596" y="302" text-anchor="middle" font-size="9" fill="#64748B">− status: StatusCandidatura</text>
+          <text x="596" y="314" text-anchor="middle" font-size="9" fill="#64748B">+ enviar() + atualizarStatus()</text>
+
+          <!-- StatusCandidatura -->
+          <rect x="718" y="240" width="155" height="80" rx="5" fill="#fff" stroke="#CBD5E1" stroke-width="1.5"/>
+          <rect x="718" y="240" width="155" height="36" rx="5" fill="#FEF3C7"/>
+          <rect x="718" y="264" width="155" height="12" fill="#FEF3C7"/>
+          <text x="795" y="254" text-anchor="middle" font-size="9" fill="#92400e" font-style="italic">&lt;&lt;enumeration&gt;&gt;</text>
+          <text x="795" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">StatusCandidatura</text>
+          <text x="795" y="290" text-anchor="middle" font-size="9" fill="#64748B">+ EM_ANALISE</text>
+          <text x="795" y="302" text-anchor="middle" font-size="9" fill="#64748B">+ APROVADO · REJEITADO</text>
+          <text x="795" y="314" text-anchor="middle" font-size="9" fill="#64748B">+ FINALIZADO</text>
+
+          <!-- ── ARROWS TOP ROW ── -->
+          <!-- Dashboard → MercadoController -->
+          <line x1="138" y1="54" x2="170" y2="54" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- MercadoController → Aluno -->
+          <line x1="342" y1="54" x2="374" y2="54" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Aluno ◆→ PerfilProfissional (composition) -->
+          <line x1="492" y1="54" x2="524" y2="54" stroke="#1B3A6B" stroke-width="1.5" marker-start="url(#dia)" marker-end="url(#arr)"/>
+          <text x="508" y="48" text-anchor="middle" font-size="9" fill="#94A3B8">1</text>
+          <text x="520" y="48" text-anchor="middle" font-size="9" fill="#94A3B8">1</text>
+          <!-- PerfilProfissional ◆→ CurriculoPDF (composition) -->
+          <line x1="694" y1="54" x2="728" y2="54" stroke="#1B3A6B" stroke-width="1.5" marker-start="url(#dia)" marker-end="url(#arr)"/>
+
+          <!-- ── VERTICAL: MercadoController → Vaga area ── -->
+          <line x1="257" y1="92" x2="257" y2="226" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+          <!-- ── ARROWS BOTTOM ROW ── -->
+          <!-- FiltroVaga →filtra→ Vaga -->
+          <line x1="138" y1="284" x2="170" y2="284" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <text x="154" y="278" text-anchor="middle" font-size="9" fill="#94A3B8" font-style="italic">filtra</text>
+
+          <!-- Vaga → VagaInterna (inheritance) -->
+          <polyline points="308,258 330,258 330,248 350,248" fill="none" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#tri)"/>
+
+          <!-- Vaga → VagaExterna (inheritance) -->
+          <polyline points="308,298 330,298 330,342 350,342" fill="none" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#tri)"/>
+
+          <!-- VagaInterna → Candidatura (gera) -->
+          <line x1="480" y1="248" x2="524" y2="268" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/>
+          <text x="505" y="249" text-anchor="middle" font-size="9" fill="#94A3B8" font-style="italic">gera</text>
+
+          <!-- Candidatura →utiliza→ StatusCandidatura -->
+          <line x1="666" y1="280" x2="716" y2="280" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+          <text x="691" y="273" text-anchor="middle" font-size="9" fill="#94A3B8" font-style="italic">utiliza</text>
+        </svg>
+      </div>
+      <div class="uml-legend">
+        <div class="uml-leg-item"><svg width="20" height="10"><line x1="0" y1="5" x2="14" y2="5" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#arr)"/></svg> Associação</div>
+        <div class="uml-leg-item"><svg width="20" height="10"><line x1="0" y1="5" x2="14" y2="5" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,2"/></svg> Dependência</div>
+        <div class="uml-leg-item"><svg width="20" height="10"><line x1="0" y1="5" x2="14" y2="5" stroke="#1B3A6B" stroke-width="1.5"/></svg> Composição (◆)</div>
+        <div class="uml-leg-item"><svg width="20" height="10"><line x1="0" y1="5" x2="12" y2="5" stroke="#94A3B8" stroke-width="1.5"/><polygon points="12,2 18,5 12,8" fill="none" stroke="#94A3B8" stroke-width="1.2"/></svg> Herança (△)</div>
+        <div class="uml-leg-item" style="background:#FEF3C7;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;color:#92400e">«enumeration»</div>
+        <div class="uml-leg-item" style="font-style:italic;font-size:11px;color:#94A3B8">«abstract»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TELAS ══ -->
+<section id="telas">
+  <div class="container">
+    <div class="label">Telas do Projeto</div>
+    <h2>O App em ação</h2>
+    <div class="telas-layout">
+      <div class="phone">
+        <div class="phone-inner">
+          <iframe
+            src="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/"
+            title="App Mercado de Trabalho — Inatel"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="phone-chin"></div>
+      </div>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:16px;color:var(--navy)">10 telas interativas</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.8">O app ao lado está rodando ao vivo. Explore o fluxo completo diretamente no mockup.</p>
+        <div class="feats">
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Hub Mercado de Trabalho</div><div class="feat-desc">Tela inicial da funcionalidade com acesso rápido às 4 sub-seções.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Busca com filtros avançados</div><div class="feat-desc">Filtros por área, modalidade e tipo com chips removíveis e contador de resultados.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Detalhes + candidatura</div><div class="feat-desc">Vagas internas com modal de sucesso; externas com alerta de redirecionamento.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Perfil profissional</div><div class="feat-desc">Barra de progresso, áreas de interesse interativas, upload de currículo simulado.</div></div></div>
+          <div class="feat"><div class="feat-dot"></div><div><div class="feat-title">Minhas candidaturas</div><div class="feat-desc">Tabs por status, cada item clicável abre os detalhes da vaga correspondente.</div></div></div>
+          <div class="feat"><div class="feat-dot" style="background:var(--green)"></div><div><div class="feat-title">Responsivo desktop + mobile</div><div class="feat-desc">Sidebar em telas largas; bottom nav em mobile. Experimente redimensionando a janela.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEMO ══ -->
+<section id="demo">
+  <div class="container">
+    <div class="label">Demonstração</div>
+    <h2>Fluxo principal passo a passo</h2>
+    <p class="lead" style="margin-bottom:8px">Selecione uma etapa para visualizar o estado correspondente da interface.</p>
+
+    <div class="demo-layout">
+      <div>
+        <div class="prog-row" id="prog-row">
+          <div class="pdot on"></div>
+          <div class="pdot"></div>
+          <div class="pdot"></div>
+          <div class="pdot"></div>
+          <div class="pdot"></div>
+        </div>
+        <div class="ds-list">
+          <div class="ds on" onclick="setSlide(0)">
+            <div class="ds-n">1</div>
+            <div><div class="ds-title">Home → Mercado de Trabalho</div><div class="ds-desc">O card de destaque na dashboard leva ao hub do Mercado de Trabalho com um toque.</div></div>
+          </div>
+          <div class="ds" onclick="setSlide(1)">
+            <div class="ds-n">2</div>
+            <div><div class="ds-title">Hub + Acesso Rápido</div><div class="ds-desc">4 atalhos para Vagas Internas, Externas, Meu Perfil e Minhas Candidaturas. Vagas em destaque logo abaixo.</div></div>
+          </div>
+          <div class="ds" onclick="setSlide(2)">
+            <div class="ds-n">3</div>
+            <div><div class="ds-title">Detalhes da Vaga</div><div class="ds-desc">Badge de tipo (Interna/Externa), descrição completa, responsabilidades e botão de candidatura.</div></div>
+          </div>
+          <div class="ds" onclick="setSlide(3)">
+            <div class="ds-n">4</div>
+            <div><div class="ds-title">Candidatura enviada!</div><div class="ds-desc">Modal de sucesso confirma o envio. "Fechar" navega direto para Minhas Candidaturas.</div></div>
+          </div>
+          <div class="ds" onclick="setSlide(4)">
+            <div class="ds-n">5</div>
+            <div><div class="ds-title">Minhas Candidaturas</div><div class="ds-desc">Status coloridos em tempo real. Cada item é clicável e abre os detalhes da vaga correspondente.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-phone-wrap">
+        <div class="demo-phone">
+          <div class="demo-screen">
+
+            <!-- Slide 0 — Home -->
+            <div class="slide on" id="slide-0">
+              <div class="home-hdr">
+                <div>
+                  <div class="home-logo">Inatel</div>
+                  <div class="home-sub">Olá, Mariana! · Terça, 20 de maio</div>
+                </div>
+                <div style="font-size:18px">🔔</div>
+              </div>
+              <div class="sb wh" style="padding:0">
+                <div class="mkt-card" style="animation:pulse 2s infinite">
+                  <div class="mkt-card-t">💼 Mercado de Trabalho</div>
+                  <div class="mkt-card-d">Encontre estágios, vagas e oportunidades para impulsionar sua carreira.</div>
+                  <div class="mkt-card-btn">Acessar oportunidades →</div>
+                </div>
+                <div style="padding:0 11px">
+                  <div style="font-size:10px;font-weight:700;color:var(--text);margin-bottom:8px">Meus widgets</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                    <div class="sc"><div class="sc-t">📊 Notas</div><div style="font-size:16px;font-weight:800;color:var(--navy);margin:4px 0">8.6</div><div class="sc-s">Média geral · Excelente</div></div>
+                    <div class="sc"><div class="sc-t">📅 Próx. aulas</div><div style="font-size:11px;font-weight:700;color:var(--text);margin:4px 0">10:20</div><div class="sc-s">Cálculo II · Sala 204</div></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;background:#fff;border-top:1px solid var(--border);padding:6px 0;flex-shrink:0">
+                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">🏠<br>Início</div>
+                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">📚<br>Acadêmico</div>
+                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">⊞<br>Serviços</div>
+                <div style="flex:1;text-align:center;font-size:9px;color:var(--blue);font-weight:700;padding:4px">💼<br>Mercado</div>
+                <div style="flex:1;text-align:center;font-size:9px;color:var(--muted);padding:4px">☰<br>Menu</div>
+              </div>
+            </div>
+
+            <!-- Slide 1 — Mercado Hub -->
+            <div class="slide" id="slide-1">
+              <div class="sh blue">
+                <div style="font-size:18px">💼</div>
+                <div>
+                  <div class="sh-t">Mercado de Trabalho</div>
+                  <div style="font-size:9px;opacity:.7">Explore oportunidades e construa o seu futuro.</div>
+                </div>
+              </div>
+              <div class="sb bg">
+                <div class="qi-grid">
+                  <div class="qi"><div class="qi-ico">🏛️</div><div class="qi-lbl">Vagas Internas</div></div>
+                  <div class="qi"><div class="qi-ico">🌐</div><div class="qi-lbl">Vagas Externas</div></div>
+                  <div class="qi"><div class="qi-ico">👤</div><div class="qi-lbl">Meu Perfil</div></div>
+                  <div class="qi"><div class="qi-ico">📋</div><div class="qi-lbl">Candidaturas</div></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <span style="font-size:11px;font-weight:700;color:var(--text)">Vagas em destaque</span>
+                  <span style="font-size:10px;color:var(--blue);font-weight:600">Ver todas</span>
+                </div>
+                <div class="sc"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><span class="tbg ti">Interna</span><div class="sc-t">Estágio em Desenvolvimento</div><div class="sc-s">Inatel · Santa Rita do Sapucaí</div></div><div style="font-size:14px">🔖</div></div><div style="margin-top:6px"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Estágio</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Presencial</span></div></div>
+                <div class="sc"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><span class="tbg te">Externa</span><div class="sc-t">Desenvolvedor Backend</div><div class="sc-s">Hughes do Brasil · São José dos Campos</div></div><div style="font-size:14px">🔖</div></div><div style="margin-top:6px"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Efetivo</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Híbrido</span></div></div>
+              </div>
+            </div>
+
+            <!-- Slide 2 — Detalhes -->
+            <div class="slide" id="slide-2">
+              <div class="sh wh">
+                <span class="sh-back">‹</span>
+                <span class="sh-t">Detalhes da vaga</span>
+                <span style="font-size:14px">🔖</span>
+              </div>
+              <div class="sb wh" style="padding:14px">
+                <div class="det-badge">Interna</div>
+                <div class="det-title">Estágio em Desenvolvimento</div>
+                <div class="det-co">🏢 Inatel</div>
+                <div class="det-co" style="margin-bottom:10px">📍 Santa Rita do Sapucaí, MG</div>
+                <div class="det-tags"><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Estágio</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Presencial</span><span class="tbg" style="background:#F1F5F9;color:#475569;font-size:9px">Publicado há 2 dias</span></div>
+                <div class="det-tabs"><div class="det-tab on">Sobre a vaga</div><div class="det-tab">Empresa</div></div>
+                <div class="det-desc-t">Descrição</div>
+                <div class="det-desc">Atuar no desenvolvimento de aplicações e sistemas internos, contribuindo com soluções inovadoras para o ecossistema de inovação do Inatel.</div>
+                <div class="det-desc-t" style="margin-top:10px">Responsabilidades</div>
+                <div class="det-desc">• Desenvolvimento de funcionalidades<br>• Manutenção de sistemas existentes<br>• Participação em code reviews</div>
+              </div>
+              <div style="padding:10px 12px;background:#fff;border-top:1px solid var(--border);flex-shrink:0">
+                <div class="sbtn sb-blue">Candidatar-se</div>
+              </div>
+            </div>
+
+            <!-- Slide 3 — Modal Sucesso -->
+            <div class="slide" id="slide-3">
+              <div class="sh wh"><span class="sh-back">‹</span><span class="sh-t">Detalhes da vaga</span></div>
+              <div class="sb wh" style="padding:14px;position:relative;flex:1">
+                <div style="opacity:.3">
+                  <div class="det-badge">Interna</div>
+                  <div class="det-title">Estágio em Desenvolvimento</div>
+                  <div class="det-co">🏢 Inatel · 📍 Santa Rita do Sapucaí</div>
+                </div>
+                <div class="overlay-m">
+                  <div class="mc">
+                    <div class="mc-ico g">✅</div>
+                    <div class="mc-title">Candidatura enviada com sucesso!</div>
+                    <div class="mc-desc">Seu currículo foi enviado para análise. Acompanhe o status em Minhas Candidaturas.</div>
+                    <div class="mc-btn">Fechar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 — Candidaturas -->
+            <div class="slide" id="slide-4">
+              <div class="sh wh"><span class="sh-back">‹</span><span class="sh-t">Minhas Candidaturas</span></div>
+              <div class="mini-tabs">
+                <div class="mt on">Todas</div>
+                <div class="mt">Em análise</div>
+                <div class="mt">Aprovadas</div>
+                <div class="mt">Rejeitadas</div>
+              </div>
+              <div class="sb wh" style="padding:0;overflow-y:auto">
+                <div class="ci"><div class="ci-ico i">🏛️</div><div style="flex:1"><div class="ci-name">Estágio em Desenvolvimento</div><div class="ci-co">Inatel · Enviada em 20/05/2025</div></div><span class="tbg tan">Em análise</span></div>
+                <div class="ci"><div class="ci-ico e">🌐</div><div style="flex:1"><div class="ci-name">Desenvolvedor Backend</div><div class="ci-co">Hughes do Brasil · 18/05/2025</div></div><span class="tbg tap">Aprovado</span></div>
+                <div class="ci"><div class="ci-ico i">🏛️</div><div style="flex:1"><div class="ci-name">Estágio em Redes</div><div class="ci-co">Inatel · Enviada em 15/05/2025</div></div><span class="tbg trj">Rejeitado</span></div>
+                <div class="ci"><div class="ci-ico e">🌐</div><div style="flex:1"><div class="ci-name">Analista de Sistemas</div><div class="ci-co">Embraer · Enviada em 10/05/2025</div></div><span class="tbg tfn">Finalizado</span></div>
+              </div>
+            </div>
+
+          </div><!-- demo-screen -->
+        </div><!-- demo-phone -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WIREFRAME ══ -->
+<section id="wireframe">
+  <div class="container">
+    <div class="label">Wireframe</div>
+    <h2>Protótipo de Interface</h2>
+    <p class="lead">Wireframes coloridos e fluxo do usuário que serviram de base para o desenvolvimento.</p>
+
+    <div class="wf-wrap">
+      <div class="wf-tabs">
+        <div class="wf-tab on" onclick="setWf(0, this)">Wireframe das telas</div>
+        <div class="wf-tab" onclick="setWf(1, this)">Fluxo do usuário</div>
+      </div>
+      <iframe class="wf-frame on" id="wf-0" src="assets/wireframe_app.pdf" title="Wireframe das 10 telas"></iframe>
+      <iframe class="wf-frame" id="wf-1" src="assets/wireframe_fluxousuario.pdf" title="Fluxo do usuário"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <h3>Mercado de Trabalho — App Inatel</h3>
+    <p>Trabalho Final · Interface Homem-Máquina · Henrique Pizzoni · Matrícula 527</p>
+    <div class="ft-links">
+      <a class="ft-link" href="https://henrique-pizzoni.github.io/jobmarket-s05-ihm/" target="_blank">🚀 Acessar o App</a>
+      <a class="ft-link" href="https://github.com/henrique-pizzoni/jobmarket-s05-ihm" target="_blank">📁 Repositório GitHub</a>
+      <a class="ft-link" href="assets/uml_app.pdf" target="_blank">📐 Diagrama UML</a>
+    </div>
+    <div class="ft-divider"></div>
+    <div class="ft-copy">INATEL · S05 · 2025</div>
+  </div>
+</footer>
+
+<style>
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.85} }
+</style>
+
+<script>
+  let cur = 0;
+  const slides = document.querySelectorAll('.slide');
+  const steps  = document.querySelectorAll('.ds');
+  const dots   = document.querySelectorAll('.pdot');
+  let timer;
+
+  function setSlide(i) {
+    slides[cur].classList.remove('on');
+    steps[cur].classList.remove('on');
+    dots[cur].classList.remove('on');
+    cur = i;
+    slides[cur].classList.add('on');
+    steps[cur].classList.add('on');
+    dots[cur].classList.add('on');
+    resetTimer();
+  }
+
+  function next() { setSlide((cur + 1) % slides.length) }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, 3800);
+  }
+
+  resetTimer();
+
+  // Wireframe tabs
+  function setWf(i, el) {
+    document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('on'));
+    document.querySelectorAll('.wf-frame').forEach(f => f.classList.remove('on'));
+    el.classList.add('on');
+    document.getElementById('wf-' + i).classList.add('on');
+  }
+</script>
+</body>
+</html>
